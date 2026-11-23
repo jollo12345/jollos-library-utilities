@@ -1,79 +1,92 @@
 #ifndef JLU_SUB_CHECK_OVERFLOW_H
 #define JLU_SUB_CHECK_OVERFLOW_H
 
-#include <SDL3/SDL_stdinc.h>
+#include <jlu/int_types.h>
 #include <jlu/macros.h>
 
-static inline bool JLU_subCheckUnderflowUint8(
-    const Uint8 value_1,
-    const Uint8 value_2,
-    Uint8* const result_out
-) {
-    *result_out = value_1 - value_2;
-    return value_1 >= value_2;
-}
+bool JLU_subCheckUnderflowU8(
+    JLU_U8 value_1,
+    JLU_U8 value_2,
+    JLU_U8* restrict result_out
+);
 
-static inline bool JLU_subCheckUnderflowUint16(
-    const Uint16 value_1,
-    const Uint16 value_2,
-    Uint16* const result_out
-) {
-    *result_out = value_1 - value_2;
-    return value_1 >= value_2;
-}
+bool JLU_subCheckUnderflowU16(
+    JLU_U16 value_1,
+    JLU_U16 value_2,
+    JLU_U16* restrict result_out
+);
 
-static inline bool JLU_subCheckUnderflowUint32(
-    const Uint32 value_1,
-    const Uint32 value_2,
-    Uint32* const result_out
-) {
-    *result_out = value_1 - value_2;
-    return value_1 >= value_2;
-}
+bool JLU_subCheckUnderflowU32(
+    JLU_U32 value_1,
+    JLU_U32 value_2,
+    JLU_U32* restrict result_out
+);
 
-static inline bool JLU_subCheckUnderflowUint64(
-    const Uint64 value_1,
-    const Uint64 value_2,
-    Uint64* const result_out
-) {
-    *result_out = value_1 - value_2;
-    return value_1 >= value_2;
-}
+bool JLU_subCheckUnderflowU64(
+    JLU_U64 value_1,
+    JLU_U64 value_2,
+    JLU_U64* restrict result_out
+);
+
+#define JLU_subCheckUnderflow_GENERIC_2(value_1, value_2) _Generic( \
+    (value_1),                                                      \
+    JLU_U8: _Generic(                                               \
+        (value_2),                                                  \
+        JLU_U8: JLU_subCheckUnderflowU8,                            \
+        default: JLU_INVALID_ARGUMENT_TYPES                         \
+    ),                                                              \
+    JLU_U16: _Generic(                                              \
+        (value_2),                                                  \
+        JLU_U16: JLU_subCheckUnderflowU16,                          \
+        default: JLU_INVALID_ARGUMENT_TYPES                         \
+    ),                                                              \
+    JLU_U32: _Generic(                                              \
+        (value_2),                                                  \
+        JLU_U32: JLU_subCheckUnderflowU32,                          \
+        default: JLU_INVALID_ARGUMENT_TYPES                         \
+    ),                                                              \
+    JLU_U64: _Generic(                                              \
+        (value_2),                                                  \
+        JLU_U64: JLU_subCheckUnderflowU64,                          \
+        default: JLU_INVALID_ARGUMENT_TYPES                         \
+    ),                                                              \
+    default: JLU_INVALID_ARGUMENT_TYPES                             \
+)(value_1, value_2, nullptr)
 
 #define JLU_subCheckUnderflow_GENERIC_3(value_1, value_2, result_out) _Generic( \
     (value_1),                                                                  \
-    Uint8: _Generic(                                                            \
+    JLU_U8: _Generic(                                                           \
         (value_2),                                                              \
-        Uint8: _Generic(                                                        \
+        JLU_U8: _Generic(                                                       \
             (result_out),                                                       \
-            Uint8*: JLU_subCheckUnderflowUint8,                                 \
+            JLU_U8*: JLU_subCheckUnderflowU8,                                   \
             default: JLU_INVALID_ARGUMENT_TYPES                                 \
         ),                                                                      \
         default: JLU_INVALID_ARGUMENT_TYPES                                     \
     ),                                                                          \
-    Uint16: _Generic(                                                           \
+    JLU_U16: _Generic(                                                          \
         (value_2),                                                              \
-        Uint16: _Generic(                                                       \
+        JLU_U16: _Generic(                                                      \
             (result_out),                                                       \
-            Uint16*: JLU_subCheckUnderflowUint16,                               \
+            JLU_U16*: JLU_subCheckUnderflowU16,                                 \
             default: JLU_INVALID_ARGUMENT_TYPES                                 \
         ),                                                                      \
         default: JLU_INVALID_ARGUMENT_TYPES                                     \
     ),                                                                          \
-    Uint32: _Generic(                                                           \
+    JLU_U32: _Generic(                                                          \
         (value_2),                                                              \
-        Uint32: _Generic(                                                       \
+        JLU_U32: _Generic(                                                      \
             (result_out),                                                       \
-            Uint32*: JLU_subCheckUnderflowUint32,                               \
+            JLU_U32*: JLU_subCheckUnderflowU32,                                 \
             default: JLU_INVALID_ARGUMENT_TYPES                                 \
         ),                                                                      \
         default: JLU_INVALID_ARGUMENT_TYPES                                     \
     ),                                                                          \
-    Uint64: _Generic(                                                           \
+    JLU_U64: _Generic(                                                          \
         (value_2),                                                              \
-        Uint64: _Generic(                                                       \
+        JLU_U64: _Generic(                                                      \
             (result_out),                                                       \
-            Uint64*: JLU_subCheckUnderflowUint64,                               \
+            JLU_U64*: JLU_subCheckUnderflowU64,                                 \
             default: JLU_INVALID_ARGUMENT_TYPES                                 \
         ),                                                                      \
         default: JLU_INVALID_ARGUMENT_TYPES                                     \
@@ -86,16 +99,16 @@ static inline bool JLU_subCheckUnderflowUint64(
 
 #endif  // JLU_SUB_CHECK_OVERFLOW_H
 
-#if defined(JLU_WITHOUT_PREFIX) && !defined(JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
+#if defined(WITHOUT_PREFIX) && !defined(JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
 #define JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX
 
-#define subCheckUnderflowUint8 JLU_subCheckUnderflowUint8
+#define subCheckUnderflowJLU_U8 JLU_subCheckUnderflowJLU_U8
 
-#define subCheckUnderflowUint16 JLU_subCheckUnderflowUint16
+#define subCheckUnderflowJLU_U16 JLU_subCheckUnderflowJLU_U16
 
-#define subCheckUnderflowUint32 JLU_subCheckUnderflowUint32
+#define subCheckUnderflowJLU_U32 JLU_subCheckUnderflowJLU_U32
 
-#define subCheckUnderflowUint64 JLU_subCheckUnderflowUint64
+#define subCheckUnderflowJLU_U64 JLU_subCheckUnderflowJLU_U64
 
 #define subCheckUnderflow(...) \
     JLU_DISPATCH(JLU_CONCAT_EXPAND(JLU_subCheckUnderflow_GENERIC_, JLU_NARGS(__VA_ARGS__)), __VA_ARGS__)

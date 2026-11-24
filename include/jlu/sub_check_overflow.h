@@ -4,28 +4,28 @@
 #include <jlu/int_types.h>
 #include <jlu/macros.h>
 
-bool JLU_subCheckOverflowS8(
-    JLU_S8 value_1,
-    JLU_S8 value_2,
-    JLU_S8* restrict result_out
+bool JLU_subCheckOverflowI8(
+    JLU_I8 value_1,
+    JLU_I8 value_2,
+    JLU_I8* restrict result_out
 );
 
-bool JLU_subCheckOverflowS16(
-    JLU_S16 value_1,
-    JLU_S16 value_2,
-    JLU_S16* restrict result_out
+bool JLU_subCheckOverflowI16(
+    JLU_I16 value_1,
+    JLU_I16 value_2,
+    JLU_I16* restrict result_out
 );
 
-bool JLU_subCheckOverflowS32(
-    JLU_S32 value_1,
-    JLU_S32 value_2,
-    JLU_S32* restrict result_out
+bool JLU_subCheckOverflowI32(
+    JLU_I32 value_1,
+    JLU_I32 value_2,
+    JLU_I32* restrict result_out
 );
 
-bool JLU_subCheckOverflowS64(
-    JLU_S64 value_1,
-    JLU_S64 value_2,
-    JLU_S64* restrict result_out
+bool JLU_subCheckOverflowI64(
+    JLU_I64 value_1,
+    JLU_I64 value_2,
+    JLU_I64* restrict result_out
 );
 
 bool JLU_subCheckOverflowU8(
@@ -54,24 +54,24 @@ bool JLU_subCheckOverflowU64(
 
 #define JLU_subCheckOverflow_GENERIC_2(value_1, value_2) _Generic( \
     (value_1),                                                     \
-    JLU_S8: _Generic(                                              \
+    JLU_I8: _Generic(                                              \
         (value_2),                                                 \
-        JLU_S8: JLU_subCheckOverflowS8,                            \
+        JLU_I8: JLU_subCheckOverflowI8,                            \
         default: JLU_INVALID_ARGUMENT_TYPES                        \
     ),                                                             \
-    JLU_S16: _Generic(                                             \
+    JLU_I16: _Generic(                                             \
         (value_2),                                                 \
-        JLU_S16: JLU_subCheckOverflowS16,                          \
+        JLU_I16: JLU_subCheckOverflowI16,                          \
         default: JLU_INVALID_ARGUMENT_TYPES                        \
     ),                                                             \
-    JLU_S32: _Generic(                                             \
+    JLU_I32: _Generic(                                             \
         (value_2),                                                 \
-        JLU_S32: JLU_subCheckOverflowS32,                          \
+        JLU_I32: JLU_subCheckOverflowI32,                          \
         default: JLU_INVALID_ARGUMENT_TYPES                        \
     ),                                                             \
-    JLU_S64: _Generic(                                             \
+    JLU_I64: _Generic(                                             \
         (value_2),                                                 \
-        JLU_S64: JLU_subCheckOverflowS64,                          \
+        JLU_I64: JLU_subCheckOverflowI64,                          \
         default: JLU_INVALID_ARGUMENT_TYPES                        \
     ),                                                             \
     JLU_U8: _Generic(                                              \
@@ -99,38 +99,38 @@ bool JLU_subCheckOverflowU64(
 
 #define JLU_subCheckOverflow_GENERIC_3(value_1, value_2, result_out) _Generic( \
     (value_1),                                                                 \
-    JLU_S8: _Generic(                                                          \
+    JLU_I8: _Generic(                                                          \
         (value_2),                                                             \
-        JLU_S8: _Generic(                                                      \
+        JLU_I8: _Generic(                                                      \
             (result_out),                                                      \
-            JLU_S8*: JLU_subCheckOverflowS8,                                   \
+            JLU_I8*: JLU_subCheckOverflowI8,                                   \
             default: JLU_INVALID_ARGUMENT_TYPES                                \
         ),                                                                     \
         default: JLU_INVALID_ARGUMENT_TYPES                                    \
     ),                                                                         \
-    JLU_S16: _Generic(                                                         \
+    JLU_I16: _Generic(                                                         \
         (value_2),                                                             \
-        JLU_S16: _Generic(                                                     \
+        JLU_I16: _Generic(                                                     \
             (result_out),                                                      \
-            JLU_S16*: JLU_subCheckOverflowS16,                                 \
+            JLU_I16*: JLU_subCheckOverflowI16,                                 \
             default: JLU_INVALID_ARGUMENT_TYPES                                \
         ),                                                                     \
         default: JLU_INVALID_ARGUMENT_TYPES                                    \
     ),                                                                         \
-    JLU_S32: _Generic(                                                         \
+    JLU_I32: _Generic(                                                         \
         (value_2),                                                             \
-        JLU_S32: _Generic(                                                     \
+        JLU_I32: _Generic(                                                     \
             (result_out),                                                      \
-            JLU_S32*: JLU_subCheckOverflowS32,                                 \
+            JLU_I32*: JLU_subCheckOverflowI32,                                 \
             default: JLU_INVALID_ARGUMENT_TYPES                                \
         ),                                                                     \
         default: JLU_INVALID_ARGUMENT_TYPES                                    \
     ),                                                                         \
-    JLU_S64: _Generic(                                                         \
+    JLU_I64: _Generic(                                                         \
         (value_2),                                                             \
-        JLU_S64: _Generic(                                                     \
+        JLU_I64: _Generic(                                                     \
             (result_out),                                                      \
-            JLU_S64*: JLU_subCheckOverflowS64,                                 \
+            JLU_I64*: JLU_subCheckOverflowI64,                                 \
             default: JLU_INVALID_ARGUMENT_TYPES                                \
         ),                                                                     \
         default: JLU_INVALID_ARGUMENT_TYPES                                    \
@@ -182,13 +182,13 @@ bool JLU_subCheckOverflowU64(
 #if defined(WITHOUT_PREFIX) && !defined(JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
 #define JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX
 
-#define subCheckOverflowJLU_S8 JLU_subCheckOverflowJLU_S8
+#define subCheckOverflowJLU_I8 JLU_subCheckOverflowJLU_I8
 
-#define subCheckOverflowJLU_S16 JLU_subCheckOverflowJLU_S16
+#define subCheckOverflowJLU_I16 JLU_subCheckOverflowJLU_I16
 
-#define subCheckOverflowJLU_S32 JLU_subCheckOverflowJLU_S32
+#define subCheckOverflowJLU_I32 JLU_subCheckOverflowJLU_I32
 
-#define subCheckOverflowJLU_S64 JLU_subCheckOverflowJLU_S64
+#define subCheckOverflowJLU_I64 JLU_subCheckOverflowJLU_I64
 
 #define subCheckOverflowJLU_U8 JLU_subCheckOverflowJLU_U8
 

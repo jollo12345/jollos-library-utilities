@@ -3,59 +3,59 @@
 #define WITHOUT_PREFIX
 #include "jlu/int_types.h"
 
-bool JLU_addCheckOverflowS8(
-    const S8 value_1,
-    const S8 value_2,
-    S8* const restrict result_out
+bool JLU_addCheckOverflowI8(
+    const I8 value_1,
+    const I8 value_2,
+    I8* const restrict result_out
 ) {
     if (result_out != nullptr) {
-        *result_out = (S8)((U8)value_1 + (U8)value_2);
+        *result_out = (I8)((U8)value_1 + (U8)value_2);
     }
     return (
-        (value_2 >= 0 && value_1 <= S8_MAX - value_2) ||
-        (value_2 < 0 && value_1 >= S8_MIN - value_2)
+        (value_2 >= 0 && value_1 <= I8_MAX - value_2) ||
+        (value_2 < 0 && value_1 >= I8_MIN - value_2)
     );
 }
 
-bool JLU_addCheckOverflowS16(
-    const S16 value_1,
-    const S16 value_2,
-    S16* const restrict result_out
+bool JLU_addCheckOverflowI16(
+    const I16 value_1,
+    const I16 value_2,
+    I16* const restrict result_out
 ) {
     if (result_out != nullptr) {
-        *result_out = (S16)((U16)value_1 + (U16)value_2);
+        *result_out = (I16)((U16)value_1 + (U16)value_2);
     }
     return (
-        (value_2 >= 0 && value_1 <= S16_MAX - value_2) ||
-        (value_2 < 0 && value_1 >= S16_MIN - value_2)
+        (value_2 >= 0 && value_1 <= I16_MAX - value_2) ||
+        (value_2 < 0 && value_1 >= I16_MIN - value_2)
     );
 }
 
-bool JLU_addCheckOverflowS32(
-    const S32 value_1,
-    const S32 value_2,
-    S32* const restrict result_out
+bool JLU_addCheckOverflowI32(
+    const I32 value_1,
+    const I32 value_2,
+    I32* const restrict result_out
 ) {
     if (result_out != nullptr) {
-        *result_out = (S32)((U32)value_1 + (U32)value_2);
+        *result_out = (I32)((U32)value_1 + (U32)value_2);
     }
     return (
-        (value_2 >= 0 && value_1 <= S32_MAX - value_2) ||
-        (value_2 < 0 && value_1 >= S32_MIN - value_2)
+        (value_2 >= 0 && value_1 <= I32_MAX - value_2) ||
+        (value_2 < 0 && value_1 >= I32_MIN - value_2)
     );
 }
 
-bool JLU_addCheckOverflowS64(
-    const S64 value_1,
-    const S64 value_2,
-    S64* const restrict result_out
+bool JLU_addCheckOverflowI64(
+    const I64 value_1,
+    const I64 value_2,
+    I64* const restrict result_out
 ) {
     if (result_out != nullptr) {
-        *result_out = (S64)((U64)value_1 + (U64)value_2);
+        *result_out = (I64)((U64)value_1 + (U64)value_2);
     }
     return (
-        (value_2 >= 0 && value_1 <= S64_MAX - value_2) ||
-        (value_2 < 0 && value_1 >= S64_MIN - value_2)
+        (value_2 >= 0 && value_1 <= I64_MAX - value_2) ||
+        (value_2 < 0 && value_1 >= I64_MIN - value_2)
     );
 }
 

@@ -10,26 +10,26 @@ static_assert(sizeof(JLU_C8) == 1);
 typedef unsigned short JLU_C16;
 static_assert(sizeof(JLU_C16) == 2);
 
-typedef signed char JLU_S8;
-static_assert(sizeof(JLU_S8) == 1);
+typedef signed char JLU_I8;
+static_assert(sizeof(JLU_I8) == 1);
 
-constexpr JLU_S8 JLU_S8_MIN = ~0x7F; /* -128 */
-constexpr JLU_S8 JLU_S8_MAX = 0x7F;  /* 127 */
+constexpr JLU_I8 JLU_I8_MIN = ~0x7F; /* -128 */
+constexpr JLU_I8 JLU_I8_MAX = 0x7F;  /* 127 */
 
-typedef signed short JLU_S16;
-static_assert(sizeof(JLU_S16) == 2);
-constexpr JLU_S16 JLU_S16_MIN = ~0x7FFF; /* -32,768 */
-constexpr JLU_S16 JLU_S16_MAX = 0x7FFF;  /* 32,767 */
+typedef signed short JLU_I16;
+static_assert(sizeof(JLU_I16) == 2);
+constexpr JLU_I16 JLU_I16_MIN = ~0x7FFF; /* -32,768 */
+constexpr JLU_I16 JLU_I16_MAX = 0x7FFF;  /* 32,767 */
 
-typedef signed JLU_S32;
-static_assert(sizeof(JLU_S32) == 4);
-constexpr JLU_S32 JLU_S32_MIN = ~0x7FFF'FFFF; /* -2,147,483,648 */
-constexpr JLU_S32 JLU_S32_MAX = 0x7FFF'FFFF;  /* 2,147,483,647 */
+typedef signed JLU_I32;
+static_assert(sizeof(JLU_I32) == 4);
+constexpr JLU_I32 JLU_I32_MIN = ~0x7FFF'FFFF; /* -2,147,483,648 */
+constexpr JLU_I32 JLU_I32_MAX = 0x7FFF'FFFF;  /* 2,147,483,647 */
 
-typedef signed long long JLU_S64;
-static_assert(sizeof(JLU_S64) == 8);
-constexpr JLU_S64 JLU_S64_MIN = ~0x7FFF'FFFF'FFFF'FFFF; /* -9,223,372,036,854,775,808 */
-constexpr JLU_S64 JLU_S64_MAX = 0x7FFF'FFFF'FFFF'FFFF;  /* 9,223,372,036,854,775,807 */
+typedef signed long long JLU_I64;
+static_assert(sizeof(JLU_I64) == 8);
+constexpr JLU_I64 JLU_I64_MIN = ~0x7FFF'FFFF'FFFF'FFFF; /* -9,223,372,036,854,775,808 */
+constexpr JLU_I64 JLU_I64_MAX = 0x7FFF'FFFF'FFFF'FFFF;  /* 9,223,372,036,854,775,807 */
 
 typedef unsigned char JLU_U8;
 static_assert(sizeof(JLU_U8) == 1);
@@ -57,21 +57,21 @@ typedef JLU_Byte Byte;
 typedef JLU_C8 C8;
 typedef JLU_C16 C16;
 
-typedef JLU_S8 S8;
-constexpr S8 S8_MIN = JLU_S8_MIN; /* -128 */
-constexpr S8 S8_MAX = JLU_S8_MAX; /* 127 */
+typedef JLU_I8 I8;
+constexpr I8 I8_MIN = JLU_I8_MIN; /* -128 */
+constexpr I8 I8_MAX = JLU_I8_MAX; /* 127 */
 
-typedef JLU_S16 S16;
-constexpr S16 S16_MIN = JLU_S16_MIN; /* -32,768 */
-constexpr S16 S16_MAX = JLU_S16_MAX; /* 32,767 */
+typedef JLU_I16 I16;
+constexpr I16 I16_MIN = JLU_I16_MIN; /* -32,768 */
+constexpr I16 I16_MAX = JLU_I16_MAX; /* 32,767 */
 
-typedef JLU_S32 S32;
-constexpr S32 S32_MIN = JLU_S32_MIN; /* -2,147,483,648 */
-constexpr S32 S32_MAX = JLU_S32_MAX; /* 2,147,483,647 */
+typedef JLU_I32 I32;
+constexpr I32 I32_MIN = JLU_I32_MIN; /* -2,147,483,648 */
+constexpr I32 I32_MAX = JLU_I32_MAX; /* 2,147,483,647 */
 
-typedef JLU_S64 S64;
-constexpr S64 S64_MIN = JLU_S64_MIN; /* -9,223,372,036,854,775,808 */
-constexpr S64 S64_MAX = JLU_S64_MAX; /* 9,223,372,036,854,775,807 */
+typedef JLU_I64 I64;
+constexpr I64 I64_MIN = JLU_I64_MIN; /* -9,223,372,036,854,775,808 */
+constexpr I64 I64_MAX = JLU_I64_MAX; /* 9,223,372,036,854,775,807 */
 
 typedef JLU_U8 U8;
 constexpr U8 U8_MAX = JLU_U8_MAX; /* 255 */

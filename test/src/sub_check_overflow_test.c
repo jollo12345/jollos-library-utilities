@@ -4,127 +4,127 @@
 #include "jlu/sub_check_overflow.h"
 
 static void sub_check_underflow_sint8_test_1(void) {
-    S8 result;
-    TEST_ASSERT_TRUE(subCheckOverflow((S8)24, (S8)12, &result));
-    TEST_ASSERT_EQUAL_INT8((S8)12, result);
+    I8 result;
+    TEST_ASSERT_TRUE(subCheckOverflow((I8)24, (I8)12, &result));
+    TEST_ASSERT_EQUAL_INT8((I8)12, result);
 }
 
 static void sub_check_underflow_sint8_test_2(void) {
-    S8 result;
-    TEST_ASSERT_TRUE(subCheckOverflow(S8_MAX, (S8)0, &result));
-    TEST_ASSERT_EQUAL_INT8(S8_MAX, result);
+    I8 result;
+    TEST_ASSERT_TRUE(subCheckOverflow(I8_MAX, (I8)0, &result));
+    TEST_ASSERT_EQUAL_INT8(I8_MAX, result);
 }
 
 static void sub_check_underflow_sint8_test_3(void) {
-    S8 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S8_MIN, (S8)1, &result));
-    TEST_ASSERT_EQUAL_INT8(S8_MAX, result);
+    I8 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I8_MIN, (I8)1, &result));
+    TEST_ASSERT_EQUAL_INT8(I8_MAX, result);
 }
 
 static void sub_check_underflow_sint8_test_4(void) {
-    S8 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S8_MAX, (S8)-1, &result));
-    TEST_ASSERT_EQUAL_INT8(S8_MIN, result);
+    I8 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I8_MAX, (I8)-1, &result));
+    TEST_ASSERT_EQUAL_INT8(I8_MIN, result);
 }
 
 static void sub_check_underflow_sint8_test_5(void) {
-    TEST_ASSERT_TRUE(subCheckOverflow((S8)24, (S8)12));
-    TEST_ASSERT_TRUE(subCheckOverflow(S8_MAX, (S8)0));
-    TEST_ASSERT_FALSE(subCheckOverflow(S8_MIN, (S8)1));
-    TEST_ASSERT_FALSE(subCheckOverflow(S8_MAX, (S8)-1));
+    TEST_ASSERT_TRUE(subCheckOverflow((I8)24, (I8)12));
+    TEST_ASSERT_TRUE(subCheckOverflow(I8_MAX, (I8)0));
+    TEST_ASSERT_FALSE(subCheckOverflow(I8_MIN, (I8)1));
+    TEST_ASSERT_FALSE(subCheckOverflow(I8_MAX, (I8)-1));
 }
 
 static void sub_check_underflow_sint16_test_1(void) {
-    S16 result;
-    TEST_ASSERT_TRUE(subCheckOverflow((S16)24, (S16)12, &result));
-    TEST_ASSERT_EQUAL_INT16((S16)12, result);
+    I16 result;
+    TEST_ASSERT_TRUE(subCheckOverflow((I16)24, (I16)12, &result));
+    TEST_ASSERT_EQUAL_INT16((I16)12, result);
 }
 
 static void sub_check_underflow_sint16_test_2(void) {
-    S16 result;
-    TEST_ASSERT_TRUE(subCheckOverflow(S16_MAX, (S16)0, &result));
-    TEST_ASSERT_EQUAL_INT16(S16_MAX, result);
+    I16 result;
+    TEST_ASSERT_TRUE(subCheckOverflow(I16_MAX, (I16)0, &result));
+    TEST_ASSERT_EQUAL_INT16(I16_MAX, result);
 }
 
 static void sub_check_underflow_sint16_test_3(void) {
-    S16 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S16_MIN, (S16)1, &result));
-    TEST_ASSERT_EQUAL_INT16(S16_MAX, result);
+    I16 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I16_MIN, (I16)1, &result));
+    TEST_ASSERT_EQUAL_INT16(I16_MAX, result);
 }
 
 static void sub_check_underflow_sint16_test_4(void) {
-    S16 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S16_MAX, (S16)-1, &result));
-    TEST_ASSERT_EQUAL_INT16(S16_MIN, result);
+    I16 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I16_MAX, (I16)-1, &result));
+    TEST_ASSERT_EQUAL_INT16(I16_MIN, result);
 }
 
 static void sub_check_underflow_sint16_test_5(void) {
-    TEST_ASSERT_TRUE(subCheckOverflow((S16)24, (S16)12));
-    TEST_ASSERT_TRUE(subCheckOverflow(S16_MAX, (S16)0));
-    TEST_ASSERT_FALSE(subCheckOverflow(S16_MIN, (S16)1));
-    TEST_ASSERT_FALSE(subCheckOverflow(S16_MAX, (S16)-1));
+    TEST_ASSERT_TRUE(subCheckOverflow((I16)24, (I16)12));
+    TEST_ASSERT_TRUE(subCheckOverflow(I16_MAX, (I16)0));
+    TEST_ASSERT_FALSE(subCheckOverflow(I16_MIN, (I16)1));
+    TEST_ASSERT_FALSE(subCheckOverflow(I16_MAX, (I16)-1));
 }
 
 static void sub_check_underflow_sint32_test_1(void) {
-    S32 result;
-    TEST_ASSERT_TRUE(subCheckOverflow((S32)24, (S32)12, &result));
-    TEST_ASSERT_EQUAL_INT32((S32)12, result);
+    I32 result;
+    TEST_ASSERT_TRUE(subCheckOverflow((I32)24, (I32)12, &result));
+    TEST_ASSERT_EQUAL_INT32((I32)12, result);
 }
 
 static void sub_check_underflow_sint32_test_2(void) {
-    S32 result;
-    TEST_ASSERT_TRUE(subCheckOverflow(S32_MAX, (S32)0, &result));
-    TEST_ASSERT_EQUAL_INT32(S32_MAX, result);
+    I32 result;
+    TEST_ASSERT_TRUE(subCheckOverflow(I32_MAX, (I32)0, &result));
+    TEST_ASSERT_EQUAL_INT32(I32_MAX, result);
 }
 
 static void sub_check_underflow_sint32_test_3(void) {
-    S32 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S32_MIN, (S32)1, &result));
-    TEST_ASSERT_EQUAL_INT32(S32_MAX, result);
+    I32 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I32_MIN, (I32)1, &result));
+    TEST_ASSERT_EQUAL_INT32(I32_MAX, result);
 }
 
 static void sub_check_underflow_sint32_test_4(void) {
-    S32 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S32_MAX, (S32)-1, &result));
-    TEST_ASSERT_EQUAL_INT32(S32_MIN, result);
+    I32 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I32_MAX, (I32)-1, &result));
+    TEST_ASSERT_EQUAL_INT32(I32_MIN, result);
 }
 
 static void sub_check_underflow_sint32_test_5(void) {
-    TEST_ASSERT_TRUE(subCheckOverflow((S32)24, (S32)12));
-    TEST_ASSERT_TRUE(subCheckOverflow(S32_MAX, (S32)0));
-    TEST_ASSERT_FALSE(subCheckOverflow(S32_MIN, (S32)1));
-    TEST_ASSERT_FALSE(subCheckOverflow(S32_MAX, (S32)-1));
+    TEST_ASSERT_TRUE(subCheckOverflow((I32)24, (I32)12));
+    TEST_ASSERT_TRUE(subCheckOverflow(I32_MAX, (I32)0));
+    TEST_ASSERT_FALSE(subCheckOverflow(I32_MIN, (I32)1));
+    TEST_ASSERT_FALSE(subCheckOverflow(I32_MAX, (I32)-1));
 }
 
 static void sub_check_underflow_sint64_test_1(void) {
-    S64 result;
-    TEST_ASSERT_TRUE(subCheckOverflow((S64)24, (S64)12, &result));
-    TEST_ASSERT_EQUAL_INT64((S64)12, result);
+    I64 result;
+    TEST_ASSERT_TRUE(subCheckOverflow((I64)24, (I64)12, &result));
+    TEST_ASSERT_EQUAL_INT64((I64)12, result);
 }
 
 static void sub_check_underflow_sint64_test_2(void) {
-    S64 result;
-    TEST_ASSERT_TRUE(subCheckOverflow(S64_MAX, (S64)0, &result));
-    TEST_ASSERT_EQUAL_INT64(S64_MAX, result);
+    I64 result;
+    TEST_ASSERT_TRUE(subCheckOverflow(I64_MAX, (I64)0, &result));
+    TEST_ASSERT_EQUAL_INT64(I64_MAX, result);
 }
 
 static void sub_check_underflow_sint64_test_3(void) {
-    S64 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S64_MIN, (S64)1, &result));
-    TEST_ASSERT_EQUAL_INT64(S64_MAX, result);
+    I64 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I64_MIN, (I64)1, &result));
+    TEST_ASSERT_EQUAL_INT64(I64_MAX, result);
 }
 
 static void sub_check_underflow_sint64_test_4(void) {
-    S64 result;
-    TEST_ASSERT_FALSE(subCheckOverflow(S64_MAX, (S64)-1, &result));
-    TEST_ASSERT_EQUAL_INT64(S64_MIN, result);
+    I64 result;
+    TEST_ASSERT_FALSE(subCheckOverflow(I64_MAX, (I64)-1, &result));
+    TEST_ASSERT_EQUAL_INT64(I64_MIN, result);
 }
 
 static void sub_check_underflow_sint64_test_5(void) {
-    TEST_ASSERT_TRUE(subCheckOverflow((S64)24, (S64)12));
-    TEST_ASSERT_TRUE(subCheckOverflow(S64_MAX, (S64)0));
-    TEST_ASSERT_FALSE(subCheckOverflow(S64_MIN, (S64)1));
-    TEST_ASSERT_FALSE(subCheckOverflow(S64_MAX, (S64)-1));
+    TEST_ASSERT_TRUE(subCheckOverflow((I64)24, (I64)12));
+    TEST_ASSERT_TRUE(subCheckOverflow(I64_MAX, (I64)0));
+    TEST_ASSERT_FALSE(subCheckOverflow(I64_MIN, (I64)1));
+    TEST_ASSERT_FALSE(subCheckOverflow(I64_MAX, (I64)-1));
 }
 
 static void sub_check_underflow_uint8_test_1(void) {

@@ -179,23 +179,17 @@ bool JLU_subCheckOverflowU64(
 
 #endif  // JLU_SUB_CHECK_OVERFLOW_H
 
-#if defined(WITHOUT_PREFIX) && !defined(JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
+#if defined(JLU_WITHOUT_PREFIX) && !defined(JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
 #define JLU_SUB_CHECK_OVERFLOW_H_WITHOUT_PREFIX
 
 #define subCheckOverflowJLU_S8 JLU_subCheckOverflowJLU_S8
-
 #define subCheckOverflowJLU_S16 JLU_subCheckOverflowJLU_S16
-
 #define subCheckOverflowJLU_S32 JLU_subCheckOverflowJLU_S32
-
 #define subCheckOverflowJLU_S64 JLU_subCheckOverflowJLU_S64
 
 #define subCheckOverflowJLU_U8 JLU_subCheckOverflowJLU_U8
-
 #define subCheckOverflowJLU_U16 JLU_subCheckOverflowJLU_U16
-
 #define subCheckOverflowJLU_U32 JLU_subCheckOverflowJLU_U32
-
 #define subCheckOverflowJLU_U64 JLU_subCheckOverflowJLU_U64
 
 #define subCheckOverflow(...) \

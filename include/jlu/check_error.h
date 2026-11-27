@@ -30,14 +30,14 @@
 
 #endif  // JLU_CHECK_ERROR_H
 
-#if defined(WITHOUT_PREFIX) && !defined(JLU_CHECK_ERROR_H_WITHOUT_PREFIX)
+#if defined(JLU_WITHOUT_PREFIX) && !defined(JLU_CHECK_ERROR_H_WITHOUT_PREFIX)
 #define JLU_CHECK_ERROR_H_WITHOUT_PREFIX
 
 #define CHECK_ERROR_GOTO(expr, label) \
     JLU_CHECK_ERROR_GOTO((expr), label)
 
 #define CHECK_ERROR_MESSAGE(expr, label, fmt, ...) \
-    JLU_CHECK_ERROR_MESSAGE((expr), label, (fmt), ##__VA_ARGS__)
+    JLU_CHECK_ERROR_MESSAGE((expr), label, (fmt)__VA_OPT__(, ) __VA_ARGS__)
 
 #define CHECK_ERROR_RECOVER(expr) \
     JLU_CHECK_ERROR_RECOVER((expr))

@@ -179,23 +179,17 @@ bool JLU_addCheckOverflowU64(
 
 #endif  // JLU_ADD_CHECK_OVERFLOW_H
 
-#if defined(WITHOUT_PREFIX) && !defined(JLU_ADD_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
+#if defined(JLU_WITHOUT_PREFIX) && !defined(JLU_ADD_CHECK_OVERFLOW_H_WITHOUT_PREFIX)
 #define JLU_ADD_CHECK_OVERFLOW_H_WITHOUT_PREFIX
 
 #define addCheckOverflowJLU_S8 JLU_addCheckOverflowJLU_S8
-
 #define addCheckOverflowJLU_S16 JLU_addCheckOverflowJLU_S16
-
 #define addCheckOverflowJLU_S32 JLU_addCheckOverflowJLU_S32
-
 #define addCheckOverflowJLU_S64 JLU_addCheckOverflowJLU_S64
 
 #define addCheckOverflowJLU_U8 JLU_addCheckOverflowJLU_U8
-
 #define addCheckOverflowJLU_U16 JLU_addCheckOverflowJLU_U16
-
 #define addCheckOverflowJLU_U32 JLU_addCheckOverflowJLU_U32
-
 #define addCheckOverflowJLU_U64 JLU_addCheckOverflowJLU_U64
 
 #define addCheckOverflow(...) \

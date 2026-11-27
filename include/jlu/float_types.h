@@ -1,10 +1,6 @@
 #ifndef JLU_FLOAT_TYPES_H
 #define JLU_FLOAT_TYPES_H
 
-#ifndef __STDC_IEC_60559_BFP__
-#error Float type not supported.
-#endif
-
 typedef float JLU_F32;
 static_assert(sizeof(JLU_F32) == 4);
 constexpr JLU_F32 JLU_F32_MIN = 0x1p-126f;        /* 1.17549435e-38 */
@@ -17,7 +13,7 @@ constexpr JLU_F64 JLU_F64_MAX = 0x1.fffffffffffffp+1023; /* 1.7976931348623157e+
 
 #endif  // JLU_FLOAT_TYPES_H
 
-#if defined(WITHOUT_PREFIX) && !defined(JLU_FLOAT_TYPES_H_WITHOUT_PREFIX)
+#if defined(JLU_WITHOUT_PREFIX) && !defined(JLU_FLOAT_TYPES_H_WITHOUT_PREFIX)
 #define JLU_FLOAT_TYPES_H_WITHOUT_PREFIX
 
 typedef JLU_F32 F32;
